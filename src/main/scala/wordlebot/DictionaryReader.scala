@@ -10,9 +10,9 @@ object DictionaryReader {
     private val PATH_TO_WORDS = "/usr/share/dict/cracklib-small"
 
     def readWords(): List[Word] = {
-        def isValidWord(word: String): Boolean = word.matches("[A-Za-z]{5}")
+        def isValidWord(word: String): Boolean = word.matches("^[A-Za-z]{5}$")
         Using(Source.fromFile(PATH_TO_WORDS)) {
-            source => source.getLines().filter(isValidWord).map(s => new Word(s)).toList
+            source => source.getLines().filter(isValidWord).map(s => Word(s.toUpperCase)).toList
         }.get
     }
 }
