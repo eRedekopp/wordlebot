@@ -4,7 +4,7 @@
 package wordlebot
 
 object Main extends App {
-    val words = DictionaryReader.readWords()
-    println("Starting!")
+    val words: List[Word] = DictionaryReader.readWords()
+    printf("Starting! %d words in solution space%n", words.length)
     WordleBotTask.playWordle(words, CliMatchGetter, words)
 }
