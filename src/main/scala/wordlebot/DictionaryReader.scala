@@ -9,7 +9,7 @@ import scala.util.Using
 object DictionaryReader {
     private val PATH_TO_WORDS = "/usr/share/dict/cracklib-small"
 
-    def readWords(): List[Word] = readSystemWords()
+    def readWords(): List[Word] = readOfficialWords()
 
     private def readSystemWords(): List[Word] = {
         // 4502 words
